@@ -1,0 +1,195 @@
+/* styles.css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0B3D2E;
+    color: #d5e970;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    .hero p {
+        font-size: 1.4em; /* Membuat teks lebih besar */
+        font-weight: 600; /* Lebih bold */
+        color: #aab302; /* Warna putih lembut untuk kontras */
+        text-align: center; /* Memastikan teks berada di tengah */
+        max-width: 80%; /* Batasi lebar agar tetap rapi */
+        margin: 10px auto; /* Otomatis tengah */
+        line-height: 1.8; /* Jarak antar baris lebih nyaman dibaca */
+    }
+    
+}
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.8em; /* Lebih besar untuk menonjolkan judul */
+    font-weight: 800; /* Bold maksimal */
+    color: #f1c40f; /* Kuning elegan */
+    text-shadow: 2px 2px 10px rgba(241, 196, 15, 0.5); /* Efek glow lembut */
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 24px;
+    margin: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(135deg, #0a9b3c, #087f31); /* Gradasi hijau elegan */
+    border: 2px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, #087f31, #0a9b3c); /* Gradasi terbalik saat hover */
+    border: 2px solid #32cd32; /* Warna hijau neon */
+    transform: scale(1.1);
+    box-shadow: 0px 0px 12px rgba(50, 205, 50, 0.8);
+}
+
+
+header {
+    background: #145A32;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(72, 201, 176, 0.5);
+}
+
+img {
+    width: 390px;
+    height: 100px;
+    object-fit: cover;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Jarak antar tombol */
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #0a9b3c, #087f31); /* Gradasi hijau elegan */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+nav ul li a:hover {
+    background: linear-gradient(135deg, #087f31, #0a9b3c); /* Gradasi dibalik saat hover */
+    transform: scale(1.08);
+    border: 2px solid #32cd32; /* Warna hijau neon */
+    box-shadow: 0px 0px 12px rgba(50, 205, 50, 0.8);
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #A3E4D7;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #58D68D;
+    transform: scale(1.05);
+    text-shadow: 0px 0px 15px #58D68D;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #A3E4D7;
+    text-shadow: 0px 0px 15px rgba(163, 228, 215, 0.8);
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+.disease-list, .prevention-list, .treatment-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.disease-card, .prevention-card, .treatment-card {
+    background: linear-gradient(135deg, #0B3D2E 0%, #145A32 100%);
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(72, 201, 176, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.disease-card:hover, .prevention-card:hover, .treatment-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 0px 25px rgba(72, 201, 176, 1);
+}
+
+.disease-card h2, .prevention-card h2, .treatment-card h2 {
+    color: #A3E4D7;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #145A32;
+    color: #E0F2E9;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 10px rgba(72, 201, 176, 0.5);
+} 
+
+@media (max-width: 768px) {
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .disease-card, .prevention-card, .treatment-card {
+        width: 90%;
+    }
+}
