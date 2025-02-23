@@ -3,17 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penyakit Tidak Menular</title>
+    <title>PENYAKIT TIDAK MENULAR</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+        header {
+            text-align: center;
+            background-color: #2081e2;
+            color: rgb(212, 255, 0);
+            padding: 20px 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 1.2em;
+            margin: 5px 0;
+            font-style: italic;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        main {
+            flex: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2081e2;
+            color: rgb(0, 0, 0);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo Instansi Kesehatan" class="logo">
+        <h1>CERMAT</h1> 
+        <h2>{ CEgah Risiko Mandiri penyAkit Tidak menular }</h2> 
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="jenis.html">Jenis Penyakit</a></li>
+                <li><a href="FAKTOR.html">Faktor Risiko</a></li>
                 <li><a href="pencegahan.html">Pencegahan</a></li>
                 <li><a href="penanganan.html">Penanganan</a></li>
             </ul>
@@ -22,16 +61,48 @@
     
     <main>
         <section class="hero">
-            <h1>Penyakit Tidak Menular</h1>
-            <p>Penyakit tidak menular tidak disebabkan oleh infeksi dan tidak dapat ditularkan dari satu individu ke individu lainnya.</p>
-            <a href="jenis.html" class="button" id="btnJenis">Pelajari Jenis Penyakit</a>
-            <a href="pencegahan.html" class="button" id="btnPencegahan">Cara Pencegahan</a>
-            <a href="penanganan.html" class="button" id="btnPenanganan">Penanganan</a>
+            <h1>PENYAKIT TIDAK MENULAR</h1>
+            <p>Menurut World Health Organization (WHO), PTM adalah penyakit yang</p> 
+            <p>tak dapat menular dari satu individu ke individu lainnya. Penyakit</p> 
+            <p>ini sering kali berlangsung lama (kronis) dan berkembang secara</p> 
+            <p>perlahan. Contoh penyakit tidak menular meliputi penyakit jantung,</p> 
+            <p>diabetes, kanker, dan gangguan pernapasan kronis.</p>
         </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 Instansi Kesehatan. Semua Hak Dilindungi.</p>
+        <img src="logo.png" alt="Logo Instansi Kesehatan" class="logo">
+        <p>&copy; 2025 POLITEKNIK KESEHATAN SEMARANG</p>
     </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll(".disease-card, .prevention-card, .treatment-card");
+    
+            cards.forEach(card => {
+                card.addEventListener("mouseenter", () => {
+                    card.style.transform = "scale(1.08)";
+                    card.style.boxShadow = "0px 0px 25px rgba(0, 255, 127, 0.9)"; // Glow hijau
+                    card.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
+                });
+    
+                card.addEventListener("mouseleave", () => {
+                    card.style.transform = "scale(1)";
+                    card.style.boxShadow = "0px 0px 15px rgba(0, 255, 127, 0.5)";
+                });
+            });
+    
+            document.querySelectorAll("nav ul li a").forEach(link => {
+                link.addEventListener("mouseover", () => {
+                    link.style.textShadow = "0px 0px 12px rgba(0, 255, 127, 0.9)";
+                    link.style.transition = "text-shadow 0.3s ease";
+                });
+    
+                link.addEventListener("mouseout", () => {
+                    link.style.textShadow = "none";
+                });
+            });
+        });
+    </script>
 </body>
 </html>
