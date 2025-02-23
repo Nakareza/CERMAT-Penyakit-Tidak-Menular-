@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screening Penyakit Tidak Menular</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        .btn-group button {
+            background: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+        .btn-group button:hover {
+            background: #ffdd44;
+        }
+        .btn-group button.selected {
+            background: #ff8800;
+            color: white;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            display: none;
+        }
+        .submit-btn {
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Screening Penyakit Tidak Menular</h2>
+        <form id="screeningForm">
+            <p>Masukkan Biodata Anda</p>
+            <div class="input-group">
+                <input type="text" id="name" placeholder="Nama Anda" required>
+            </div>
+            <div class="input-group">
+                <input type="number" id="age" placeholder="Usia Anda" required>
+            </div>
+            <div class="question">
+                <p>Apakah Anda sering merasa lelah tanpa sebab?</p>
+                <div class="btn-group">
+                    <button type="button" onclick="selectAnswer(this, 'q1', 'yes')">Ya</button>
+                    <button type="button" onclick="selectAnswer(this, 'q1', 'no')">Tidak</button>
+                </div>
+            </div>
+            <div class="question">
+                <p>Apakah Anda mengalami nyeri kepala berulang?</p>
+                <div class="btn-group">
+                    <button type="button" onclick="selectAnswer(this, 'q2', 'yes')">Ya</button>
+                    <button type="button" onclick="selectAnswer(this, 'q2', 'no')">Tidak</button>
+                </div>
+            </div>
+            <div class="question">
+                <p>Apakah Anda memiliki tekanan darah tinggi?</p>
+                <div class="btn-group">
+                    <button type="button" onclick="selectAnswer(this, 'q3', 'yes')">Ya</button>
+                    <button type="button" onclick="selectAnswer(this, 'q3', 'no')">Tidak</button>
+                </div>
+            </div>
+            <button type="button" class="submit-btn" onclick="checkResult()">Cek Hasil</button>
+        </form>
+        <p class="result" id="resultText"></p>
+    </div>
+
+    <script>
+        let answers = {};
+
+        function selectAnswer(button, question, value) {
+            answers[question] = value;
+            let buttons = button.parentNode.querySelectorAll('button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+
+        function checkResult() {
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            if (!name || !age) {
+                alert("Mohon isi biodata terlebih dahulu.");
+                return;
+            }
+            
+            let score = 0;
+            for (let key in answers) {
+                if (answers[key] === "yes") {
+                    score++;
+                }
+            }
+            let resultText = document.getElementById("resultText");
+            if (score >= 3) {
+                resultText.textContent = `${name}, Anda berisiko mengalami hipertensi, penyakit jantung, atau diabetes tipe 2. Segera konsultasikan dengan dokter dan perbaiki gaya hidup.`;
+                resultText.style.color = "red";
+            } else if (score == 2) {
+                resultText.textContent = `${name}, Anda menunjukkan tanda-tanda sindrom metabolik yang dapat mengarah ke diabetes, obesitas, atau hipertensi. Perhatikan pola makan dan rutin berolahraga.`;
+                resultText.style.color = "orange";
+            } else {
+                resultText.textContent = `${name}, kondisi Anda tampaknya sehat. Tetaplah menjaga pola hidup sehat dengan makan bergizi, olahraga teratur, dan cukup istirahat.`;
+                resultText.style.color = "green";
+            }
+            resultText.style.display = "block";
+        }
+    </script>
+</body>
+</html>
